@@ -2,8 +2,8 @@ var config = {
     'development': {
         mysql: {
             database: 'cet',
-            username: 'Your mysql username',
-            password: 'Your mysql password'
+            username: 'your_mysql_username',
+            password: 'your_mysql_password'
         },
         firebase: {
             databaseURL: ""
@@ -16,7 +16,7 @@ var config = {
             password: null
         },
         firebase: {
-            databaseURL: "Enter firebase database url"
+            databaseURL: "firebase_database_url"
         }
     }
   }

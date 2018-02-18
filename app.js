@@ -13,7 +13,7 @@ var config = require('./config')()
 var debug = require('debug')('app');
 var app = express();
 
-var serviceAccount = require("./drishti-admin.json");
+var serviceAccount = require("./dcms-admin.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
