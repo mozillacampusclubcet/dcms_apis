@@ -18,7 +18,12 @@ module.exports = function(req, res, next) {
         //random verification for gunt communication
         if (md5(idToken) == '1be9dbe0261a1dff35c3e50df7fe9e9a')
             return next();
-    } else if (idToken && md5(idToken) == 'f8c27d1799617430cd525bda43c3fac2') {
+    } 
+    
+    // else if (idToken && md5(idToken) == 'f8c27d1799617430cd525bda43c3fac2') {
+    // removed the check of token's md5 hash
+    else if (idToken) {
+
         //random verification for test purposes
         req.uid = constant.testProfile.uid;
         req.profile = constant.testProfile;

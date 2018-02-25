@@ -12,3 +12,7 @@ Content management system for the fests of College of Engineering, Trivandrum
 6. run ```npm start```
 7. create a database named _cet_ using mysql
 8. Try using sudo privileges in case of any error.
+
+# Documentation
+- run ```gulp doc``` and an apidoc folder will be created.
+- Documentation for the project can be found in apidocs/index.html
