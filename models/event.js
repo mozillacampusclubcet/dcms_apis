@@ -23,9 +23,9 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0
         },
         category: {
-            type: DataTypes.ENUM('AR','COMECON','CIVIL', 'EE', 'EC', 'ME', 'CS', 'ROBO', 'GEN', 'ONLINE','GAMING','ORIGINALS'),
+            type: DataTypes.ENUM('ANT', 'DIO' ,'KHE' ,'NAD', 'CD' ,'MIS'),
             allowNull: false,
-            defaultValue:'GEN'
+            defaultValue:'MIS'
         },
         regFee: {
             type: DataTypes.INTEGER,
