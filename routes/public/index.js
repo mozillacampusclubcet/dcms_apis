@@ -7,6 +7,7 @@ router.use('/college', require('./college'));
 router.use('/event', require('./event'));
 router.use('/student', require('./student'));
 router.use('/highlight', require('./highlight'));
+router.use('/payment', require('./payment'));
 
 /**
  * @api {get} /public/leaderboard leaderboard
