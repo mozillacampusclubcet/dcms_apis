@@ -18,7 +18,7 @@ var Promise = require('bluebird');
  *
  * @apiParamExample {json} group event request
  * {
- *     group: [1,2,3,4]
+ *     group: 1,2,3,4
  * }
  *
  *
@@ -48,12 +48,16 @@ router.put('/:id', (req, res, next) => {
             }
         })
     });
+
+
     var eventStudent = findStudent.then(student => {
         return models.eventStudent.create({
             eventId: req.params.id,
             studentId: student.id
         })
     });
+
+    
     eventStudentSave = "";
     try {
         Promise.all([findStudent, findEvent, eventStudent])
@@ -65,10 +69,13 @@ router.put('/:id', (req, res, next) => {
                             msg: "No group tag found"
                         }))
                     }
-                    req.body.group = req.body.group.map((x) => {
-                        return parseInt(x);
+                    req.body.group = req.body.group.split(',')
+                    req.body.group = req.body.group.map(function (x) {
+                        return parseInt(x, 10);
                     });
+                    console.log(req.body.group)
                     req.body.group.push(student.id);
+                    console.log(req.body.group)
                     req.body.group = Array.from(new Set(req.body.group));
                     return models.groupStudent.bulkCreate(
                         req.body.group.map(x => {
