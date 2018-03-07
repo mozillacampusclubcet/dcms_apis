@@ -1,5 +1,5 @@
 var FCM = require('fcm-node');
-var serverKey = 'AAAACLrbQKs:APA91bEI9gyjzCAYq6WWxy8SPuoprNygcLquRMOXZuEyUQQXBwKnUI45jdUPyl3LBGYmrOKmPZCG1WEd1NUF4GbuEflYcSOqj3uOR5yM4pl05LxqvIDU9Agi_ZcDUwTyO09QXpyQtSMp';
+var serverKey = 'AAAAyb6hoWE:APA91bGYv6XuH3dk-g5Th7d9Y6KUAfGhVqYKCSAvJSdx38857uybxBJbnedkZllXXepmXz32YtA-Jqqg-9Jks-HUda_O9eL6J-jJ2WwI5PXGo0TCor8kBBH1a-2j1cAKXb8iTg5Fog94';
 var fcm = new FCM(serverKey);
 var Promise = require('bluebird');
 var debug = require('debug')('fcm');

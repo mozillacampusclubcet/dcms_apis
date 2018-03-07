@@ -20,9 +20,9 @@ module.exports = function(req, res, next) {
             return next();
     } 
     
-    // else if (idToken && md5(idToken) == 'f8c27d1799617430cd525bda43c3fac2') {
+    else if (idToken && md5(idToken) == 'f8c27d1799617430cd525bda43c3fac2') {
     // removed the check of token's md5 hash
-    else if (idToken) {
+    // else if (idToken) {
 
         //random verification for test purposes
         req.uid = constant.testProfile.uid;
@@ -73,7 +73,7 @@ module.exports = function(req, res, next) {
 
     } else if (req.url.startsWith('/public')) {
         return next();
-    } else if (!idToken) {
+	}else if (!idToken) {
         return res.status(401).json(constant.noAuthToken);
     } else {
         admin.auth().verifyIdToken(idToken)
