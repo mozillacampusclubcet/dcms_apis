@@ -4,21 +4,24 @@ var models = require('../../models');
 var constant = require('../../constant');
 
 router.post('/', (req, res, next) => {
-    if(req.body.ticketName) {
+
+    req.body.data = JSON.parse(req.body.data);
+    
+    if(req.body.data.ticketName) {
         models.event.findOne({
             where: {
-                name: req.body.ticketName
+                name: req.body.data.ticketName
             }
         }).then(event => {
             req.body.eventCode = event.id
         })
     }
-
+ 
     if (!req.body.paid)
         req.body.paid = true;
     models.student.findOne({
         where: {
-            email: req.body.userEmailId
+            email: req.body.data.userEmailId
         }
     })
         .then(student => {
@@ -30,6 +33,7 @@ router.post('/', (req, res, next) => {
             })
         })
         .then(eventStudent => {
+	   
             eventStudent.paid = req.body.paid
             models.payment.create({
                 eventStudentId: eventStudent.id,
@@ -41,6 +45,7 @@ router.post('/', (req, res, next) => {
             res.json(eventStudent)
         })
         .catch(err => {
+	   console.log(err);
             constant.noStudentFound.data = err;
             return res.status(400).json(constant.noStudentFound);
         })
